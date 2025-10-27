@@ -1,0 +1,23 @@
+services:
+  single:
+    build: .
+    command: python -u server_single.py /srv/content --port 8080
+    volumes:
+      - ./content:/srv/content:ro
+    ports:
+      - "8080:8080"
+
+  threaded:
+    build: .
+    command: python -u server_threaded.py /srv/content --port 8081
+    volumes:
+      - ./content:/srv/content:ro
+    ports:
+      - "8081:8081"
+
+  tester:
+    build: .
+    entrypoint: python load_test.py
+    depends_on:
+      - single
+      - threaded
