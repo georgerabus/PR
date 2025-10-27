@@ -10,12 +10,4 @@ services:
       # Mount server.py so you can edit it without rebuilding
       - ./server.py:/app/server.py:ro
     command: python server.py /content
-    networks:
-      - lab-network
-    stdin_open: true
-    tty: true
-    restart: unless-stopped
 
-networks:
-  lab-network:
-    driver: bridge

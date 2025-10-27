@@ -13,9 +13,9 @@
 The project can be deployed using Docker Compose with the following commands:
 
 ```bash
-docker-compose build
+docker compose build
 
-docker-compose up
+docker compose up
 
 ```
 
@@ -67,3 +67,6 @@ trying to access something that doesnt exist through the client:
 ## Accesing friend's server
 
 
+![alt text](images/image10.png)
+
+I connected through my phone on the ip address `http://192.168.122.8:8000/` and could easily have the same functionality as I have on my pc.
