@@ -75,6 +75,7 @@ def get_content_type(file_path):
         '.gif': 'image/gif',
         '.css': 'text/css',
         '.js': 'application/javascript',
+        # '.txt': 'text/html'
     }
     return content_types.get(ext, 'application/octet-stream')
 

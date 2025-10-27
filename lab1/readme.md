@@ -1,6 +1,12 @@
 # Lab 1 Report: HTTP Server and Client Implementation
 
-## Directory
+
+**Student:** [Rabus George FAF-233]  
+**Course:** Programare in Retea  
+**Date:** October 27, 2025  
+
+## Source Directory structure:
+![alt text](images/image0.png)
 
 ## Docker Compose Execution
 
@@ -17,25 +23,22 @@ docker-compose up
 ![alt text](images/image1.png)
 
 docker desktop:
+
 ![alt text](images/image2.png)
 
-## Implementation Details
+## Server 
 
-The server demonstrates comprehensive functionality:
+And here is how localhost on port 8000 looks like:
 
-    Navigation through nested directory structures
+![alt text](images/image3.png)
 
-    Bidirectional directory traversal (forward and backward)
+server response from accessing /extra directory, test.txt then going back to root directory
 
-    PDF file rendering capability
+![alt text](images/image4.png)
 
-    PNG image display functionality
+trying to access something that doesnt exist:
 
-    HTML file processing
-
-    Markdown and text file download support
-
-The implementation satisfies all fundamental requirements for HTTP file serving operations.
+![alt text](images/image5.png)
 
 
 ## Client Application Usage
@@ -43,5 +46,24 @@ The implementation satisfies all fundamental requirements for HTTP file serving 
 The client operates independently of the Docker Compose environment. Execution follows this pattern:
 
 ```bash
-python client.py localhost 8080 <filename>
+python client.py <server_host> <server_port> <url_path> [save_directory]
 ```
+while save_directory is optional, default location is `./downloads`
+
+![alt text](images/image6.png)
+
+![alt text](images/image7.png)
+
+Successfully retrieving test.txt from the extra/ directory
+
+when a directory is requested instead of a file, it prints all of its contents, just like a unix 'ls' command
+
+![alt text](images/image8.png)
+
+trying to access something that doesnt exist through the client:
+
+![alt text](images/image9.png)
+
+## Accesing friend's server
+
+
