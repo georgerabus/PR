@@ -1,0 +1,21 @@
+services:
+  http-server:
+    build: .
+    container_name: pr-lab1-http-server
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the content directory (read-only)
+      - ./content:/content:ro
+      # Mount server.py so you can edit it without rebuilding
+      - ./server.py:/app/server.py:ro
+    command: python server.py /content
+    networks:
+      - lab-network
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+networks:
+  lab-network:
+    driver: bridge
